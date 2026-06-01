@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CurrentWeather, ForecastDay } from '@weather-app/shared'
+import { CurrentWeather, ForecastDay } from '../types/weather'
 import { AppError } from '../middleware/errorHandler'
 
 const BASE_URL = process.env.OPENWEATHER_BASE_URL
@@ -93,7 +93,7 @@ function parseCurrentWeather(raw: OWMCurrentResponse): CurrentWeather {
 
 function parseForecast(raw: OWMForecastResponse): ForecastDay[] {
   const dailyMap: Record<string, OWMForecastItem> = {}
-  
+
   raw.list.forEach((item) => {
     const date = new Date(item.dt * 1000)
     const dayKey = date.toDateString()
