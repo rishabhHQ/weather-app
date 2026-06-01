@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001
 
 // ── Middleware ──────────────────────────────────────────────
 app.use(cors({
-  origin: 'http://localhost:3000' // only allow our frontend in development
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000'
 }))
 app.use(express.json()) // parse JSON request bodies
 

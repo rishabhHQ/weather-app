@@ -1,6 +1,6 @@
 import { CurrentWeather, ForecastDay } from '../types'
 
-const BASE_URL = ''
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001'
 
 async function get<T>(endpoint: string): Promise<T> {
   const res = await fetch(`${BASE_URL}${endpoint}`)
