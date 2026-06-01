@@ -1,12 +1,11 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+// Load .env file into process.env — must be called before anything reads env vars
+dotenv.config()
 import weatherRouter from './routes/weather'
 import chatRouter from './routes/chat'
 import { errorHandler } from './middleware/errorHandler'
-
-// Load .env file into process.env — must be called before anything reads env vars
-dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3001
